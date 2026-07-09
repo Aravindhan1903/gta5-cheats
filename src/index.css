@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0b07;
+  --color-panel: #14160f;
+  --color-panel-alt: #1b1e14;
+  --color-line: #2a2e1f;
+  --color-paper: #f2f4ea;
+  --color-muted: #9aa38c;
+  --color-accent: #ffc94d;
+  --color-accent-dim: #b8912f;
+  --color-danger: #ff5d5d;
+
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(255, 201, 77, 0.05), transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.012) 0px,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+* {
+  scrollbar-color: var(--color-accent-dim) var(--color-panel);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.text-stencil {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.keycap {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.4) inset,
+    0 3px 0 var(--color-line);
+}
+
+.keycap-active {
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 1px 0 var(--color-accent-dim);
+  transform: translateY(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
